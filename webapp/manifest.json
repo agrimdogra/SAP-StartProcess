@@ -1,0 +1,243 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "startprocessnew",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "${project.version}"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.13.5",
+      "toolsId": "10f35a15-36ad-4046-a3b6-42984facfc99"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_admin_process/srvd/sap/zui_admin_process/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {},
+      "outbounds": {
+        "NavigationID": {
+          "semanticObject": "BusinessProcess",
+          "action": "manage",
+          "parameters": {
+            "preferredMode": {
+              "value": {
+                "value": "display"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ach": "PNF"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "${sap.ui5.dist.version}",
+      "libs": {
+        "sap.m": {
+          "lazy": false
+        },
+        "sap.ui.core": {
+          "lazy": false
+        },
+        "sap.ushell": {
+          "lazy": false
+        },
+        "sap.fe.templates": {
+          "lazy": false
+        },
+        "lib.zprocessandforms.common.library": {
+          "lazy": false
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "startprocessnew.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "C_HCMProcRecdAdminTPList",
+          "target": "C_HCMProcRecdAdminTPList"
+        },
+        {
+          "name": "C_HCMProcRecdAdminTPdetailPage",
+          "pattern": "C_HCMProcRecdAdminTP({C_HCMProcRecdAdminTPKey}):?query:",
+          "target": "C_HCMProcRecdAdminTPdetailPage"
+        }
+      ],
+      "targets": {
+        "C_HCMProcRecdAdminTPList": {
+          "type": "Component",
+          "id": "C_HCMProcRecdAdminTPList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/C_HCMProcRecdAdminTP",
+              "variantManagement": "Page",
+              "views": {
+                   "paths": [
+                              {
+                                  "key": "PersAdminSV",
+                                  "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#PersAdminSV"
+                              },
+                              {
+                                  "key": "OrgManSV",
+                                  "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#OrgManSV"
+                              }
+                            ]
+                         },
+              "navigation": {
+                "C_HCMProcRecdAdminTP": {
+                  "detail": {
+                    "route": "C_HCMProcRecdAdminTPdetailPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "quickVariantSelection": {
+                      "paths": [
+                         {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#subFilterAllSV"
+                         },
+                         {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#subFilterInProcessSV"
+                         },
+                         {
+                           "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#subFilterInCompletedSV"
+                         },
+                         {
+                          "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#subFilterInDraftSV"
+                         }
+                      ],
+                      "hideTableTitle": true,
+                      "showCounts": false
+                   }, 
+                    "selectionMode": "Auto"
+                  },
+                  "actions": {
+                    "addProcess": {
+                      "press": ".extension.startprocessnew.ext.controller.ListReportExt.onAddProcess",
+                      "text": "Start New Process",
+                      "enabled": true,
+                      "visible": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "C_HCMProcRecdAdminTPdetailPage": {
+          "type": "Component",
+          "id": "C_HCMProcRecdAdminTPdetailPage",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "startprocessnew.ext.view.detail",
+              "contextPath": "/C_HCMProcRecdAdminTP"
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "startprocessnew.ext.controller.ListReportExt",
+            "sap.ui.generic.app": {
+              "C_HCMProcRecdAdminTP": {
+                "EntitySet": "C_HCMProcRecdAdminTP",
+                "": {
+                  "tableRow": {
+                    "id": "tableRowButton",
+                    "text": "TableRowPress",
+                    "press": "onSelectedRow",
+                    "requiresSelectActionsion": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [
+      "0002"
+    ],
+    "archeType": "transactional"
+  }
+}

@@ -1,0 +1,2405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zui_admin_process.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="C_HCMProcAttchAdminTPType">
+                <Key>
+                    <PropertyRef Name="HCMProcessNameCode"/>
+                    <PropertyRef Name="HCMProcessUUID"/>
+                    <PropertyRef Name="HCMProcessWorkItemID"/>
+                    <PropertyRef Name="HCMProcessAttachmentIndex"/>
+                    <PropertyRef Name="HCMProcessAttachmentUUID"/>
+                    <PropertyRef Name="HCMProcessStepUUID"/>
+                </Key>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="HCMProcessWorkItemID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcessAttachmentIndex" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="HCMProcessAttachmentUUID" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStepUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="HCMProcScenarioName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStageName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcScenarioVersion" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="HCMProcessAttachmentFileName" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessAttachmentOperation" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessAttachmentMimeType" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessAttachmentType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HCMProcessAttachmentTypeText" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="HCMProcAttachmentContentText" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="HCMProcessIsModifyAllowed" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessIsDisplayAllowed" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessReferenceNumber" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="__EntityControl" Type="com.sap.gateway.srvd.zui_admin_process.v0001.EntityControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="_HCMProcessRecord" Type="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPType" Nullable="false" Partner="_HCMProcessAttachment">
+                    <ReferentialConstraint Property="HCMProcessNameCode" ReferencedProperty="HCMProcessNameCode"/>
+                    <ReferentialConstraint Property="HCMProcessUUID" ReferencedProperty="HCMProcessUUID"/>
+                    <ReferentialConstraint Property="HCMProcessWorkItemID" ReferencedProperty="HCMProcessWorkItemID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="C_HCMProcUsrEvtAdminTPType">
+                <Key>
+                    <PropertyRef Name="HCMProcessNameCode"/>
+                    <PropertyRef Name="HCMProcessUUID"/>
+                    <PropertyRef Name="HCMProcessWorkItemID"/>
+                    <PropertyRef Name="Fieldname"/>
+                    <PropertyRef Name="Operation"/>
+                </Key>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="HCMProcessWorkItemID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Fieldname" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Operation" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcScenarioName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStageName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcScenarioVersion" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <NavigationProperty Name="_HCMProcessRecord" Type="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPType" Nullable="false" Partner="_HCMProcessUserEvent">
+                    <ReferentialConstraint Property="HCMProcessNameCode" ReferencedProperty="HCMProcessNameCode"/>
+                    <ReferentialConstraint Property="HCMProcessUUID" ReferencedProperty="HCMProcessUUID"/>
+                    <ReferentialConstraint Property="HCMProcessWorkItemID" ReferencedProperty="HCMProcessWorkItemID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="I_HCMProcessInitiatorType">
+                <Key>
+                    <PropertyRef Name="HCMProcessInitiatorUserID"/>
+                </Key>
+                <Property Name="HCMProcessInitiatorUserID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="PersonFullName" Type="Edm.String" Nullable="false" MaxLength="80"/>
+            </EntityType>
+            <EntityType Name="I_HCMProcessNameType">
+                <Key>
+                    <PropertyRef Name="HCMProcessNameCode"/>
+                </Key>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessNameCode_Text" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </EntityType>
+            <EntityType Name="I_HCMProcessAffectedObjectTypeType">
+                <Key>
+                    <PropertyRef Name="HCMObjectType"/>
+                </Key>
+                <Property Name="HCMObjectType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="HCMObjectType_Text" Type="Edm.String" Nullable="false" MaxLength="25"/>
+            </EntityType>
+            <EntityType Name="I_HCMProcessStatusVHType">
+                <Key>
+                    <PropertyRef Name="HCMProcessStatus"/>
+                </Key>
+                <Property Name="HCMProcessStatus" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcessStatus_Text" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </EntityType>
+            <EntityType Name="C_HCMProcFldValHelpAdminTPType">
+                <Key>
+                    <PropertyRef Name="HCMProcessNameCode"/>
+                    <PropertyRef Name="HCMProcessUUID"/>
+                    <PropertyRef Name="HCMProcessWorkItemID"/>
+                    <PropertyRef Name="HCMProcessKeyField"/>
+                    <PropertyRef Name="HCMProcessFieldName"/>
+                </Key>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="HCMProcessWorkItemID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcessKeyField" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="HCMProcessFieldName" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="HCMProcScenarioName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStageName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcScenarioVersion" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="HCMProcessControlTypeCode" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="HCMProcessObjectKey" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMPersonnelNumber" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="HCMProcessFilterField1" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessFilterField1Value" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessUserEventName" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="HCMProcessFilterField2" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessFilterField2Value" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessFilterField3" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessFilterField3Value" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessFilterField4" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessFilterField4Value" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessFieldValue" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="_HCMProcessRecord" Type="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPType" Nullable="false" Partner="_HCMProcFldValHelp">
+                    <ReferentialConstraint Property="HCMProcessNameCode" ReferencedProperty="HCMProcessNameCode"/>
+                    <ReferentialConstraint Property="HCMProcessUUID" ReferencedProperty="HCMProcessUUID"/>
+                    <ReferentialConstraint Property="HCMProcessWorkItemID" ReferencedProperty="HCMProcessWorkItemID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="C_HCMProcLnkAdminTPType">
+                <Key>
+                    <PropertyRef Name="HCMProcessNameCode"/>
+                    <PropertyRef Name="HCMProcessUUID"/>
+                    <PropertyRef Name="HCMProcessWorkItemID"/>
+                    <PropertyRef Name="HCMProcessLink"/>
+                </Key>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="HCMProcessWorkItemID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcessLink" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="HCMProcScenarioName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStageName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcScenarioVersion" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="HCMProcessLinkText" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <NavigationProperty Name="_HCMProcessRecord" Type="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPType" Nullable="false" Partner="_HCMProcessLink">
+                    <ReferentialConstraint Property="HCMProcessNameCode" ReferencedProperty="HCMProcessNameCode"/>
+                    <ReferentialConstraint Property="HCMProcessUUID" ReferencedProperty="HCMProcessUUID"/>
+                    <ReferentialConstraint Property="HCMProcessWorkItemID" ReferencedProperty="HCMProcessWorkItemID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="C_HCMProcRecdAdminTPType">
+                <Key>
+                    <PropertyRef Name="HCMProcessNameCode"/>
+                    <PropertyRef Name="HCMProcessUUID"/>
+                    <PropertyRef Name="HCMProcessWorkItemID"/>
+                </Key>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="HCMProcessWorkItemID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcScenarioName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStageName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcScenarioVersion" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="HCMProcessInitiatorRole" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HCMProcessEventName" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="HCMProcessAffectedObjectType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="HCMPersonnelNumber" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="HCMProcessAffectedObject" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessReferenceNumber" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcProcessorName" Type="Edm.String" Nullable="false" MaxLength="256"/>
+                <Property Name="HCMProcessAffectedName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="HCMProcessIsStartObject" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessIsOnBehalf" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessGroupName" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="HCMProcessDescription" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="HCMProcessIsCustomTable" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMPersonnelActionType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="HCMPersonnelActionReason" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HCMProcessEffectiveDate" Type="Edm.Date"/>
+                <Property Name="HCMCentralPerson" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="HCMProcessHasAttachments" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcMaxAttachments" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessAttachMaxSize" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessHasComments" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcCommentsCurTxt" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcCommentsPrevTxt" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessIsLiteModeCompatible" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessUiAttribute" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HCMProcessIsAddRowEnabled" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessIsInputHelpEnabled" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessAuthorName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="HCMProcessStatus" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcessStatusCriticality" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessStartDate" Type="Edm.Date"/>
+                <Property Name="HCMProcessStartTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="HCMProcessStepCompletionDate" Type="Edm.Date"/>
+                <Property Name="HCMProcessStepCompletionTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="HCMProcStatusAfterUserAction" Type="Edm.String" Nullable="false" MaxLength="22"/>
+                <Property Name="HCMProcessFormType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HCMProcessFormLayout" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HCMProcessIsAllStepsDisplayed" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessStepUUID" Type="Edm.Guid"/>
+                <Property Name="HCMFormTemplateName" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="HCMProcessApplicationType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HCMProcessInitiatorUserID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="__CreateByAssociationControl" Type="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPCbAControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="_HCMProcessAffectedObjectType" Type="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessAffectedObjectTypeType"/>
+                <NavigationProperty Name="_HCMProcessAttachment" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcAttchAdminTPType)" Partner="_HCMProcessRecord">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="_HCMProcessFieldMetadata" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcFldMetadataAdminTPType)" Partner="_HCMProcessRecord">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="_HCMProcessInitiator" Type="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessInitiatorType"/>
+                <NavigationProperty Name="_HCMProcessLink" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcLnkAdminTPType)" Partner="_HCMProcessRecord">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="_HCMProcessName" Type="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessNameType"/>
+                <NavigationProperty Name="_HCMProcessStatus" Type="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessStatusVHType"/>
+                <NavigationProperty Name="_HCMProcessUserEvent" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcUsrEvtAdminTPType)" Partner="_HCMProcessRecord">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="_HCMProcFldValHelp" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcFldValHelpAdminTPType)" Partner="_HCMProcessRecord">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="I_HCMProcessBasicType">
+                <Key>
+                    <PropertyRef Name="HCMProcessUUID"/>
+                </Key>
+                <Property Name="HCMProcessUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="HCMProcessReferenceNumber" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessInitiatorUserID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcessInitiatorRole" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HCMProcessRecruitingScenario" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStatus" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcessApplicationType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HCMProcessAffectedObject" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStartDate" Type="Edm.Date"/>
+                <Property Name="HCMProcessStartTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="HCMProcessStartDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="HCMProcessStartTimeDiff" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessCompletionDate" Type="Edm.Date"/>
+                <Property Name="HCMProcessCompletionTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="HCMProcessCompltnDateTime" Type="Edm.DateTimeOffset"/>
+                <Property Name="HCMProcessCompltnTimeDiff" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessNumberOfAttachments" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="HCMProcessHasError" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessObjectVersionValue" Type="Edm.Int16" Nullable="false"/>
+                <Property Name="HCMProcessBusinessUserID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcAffcdObjDesc" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="HCMProcessAffectedObjectType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="HCMProcessGroupReferenceNumber" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessGroup" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="HCMProcessEffectiveDate" Type="Edm.Date"/>
+                <NavigationProperty Name="_HCMProcessAffectedObjectType" Type="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessAffectedObjectTypeType"/>
+                <NavigationProperty Name="_HCMProcessName" Type="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessNameType"/>
+            </EntityType>
+            <EntityType Name="C_HCMProcFldMetadataAdminTPType">
+                <Key>
+                    <PropertyRef Name="HCMProcessNameCode"/>
+                    <PropertyRef Name="HCMProcessUUID"/>
+                    <PropertyRef Name="HCMProcessWorkItemID"/>
+                    <PropertyRef Name="HCMProcessFieldName"/>
+                </Key>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="HCMProcessWorkItemID" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="HCMProcessFieldName" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="HCMProcScenarioName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcessStageName" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="HCMProcScenarioVersion" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="HCMProcessFieldSequenceNumber" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessFieldLabelText" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="HCMProcessFieldTypeText" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="HCMProcessFieldLengthValue" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessFieldValue" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessRecordIndex" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessFieldHasSearchHelp" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessControlTypeCode" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="HCMProcessFieldIsMandatory" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessFieldIsReadOnly" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessFieldIsHidden" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessGroupID" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="HCMProcessGroupHeaderText" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="HCMProcessGroupSequenceNumber" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessGroupFieldSequence" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessFieldContainer" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="HCMProcessContainerId" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="HCMProcContainerSequenceNumber" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessContainerTitleText" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="HCMProcessIsStartObject" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcFieldSrchHelpParentName" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessIsFieldControlButton" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessIsButtonEnabled" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessIsButtonVisible" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessUserEventName" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="HCMProcessFieldPrecisionValue" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessFieldDescriptionID" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="HCMProcessFieldDescription" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessFieldScaleValue" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="HCMProcessTooltipText" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="HCMProcessIsLiteModeCompatible" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessIsForwardToExpert" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessExpertsNames" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessUIAttribute" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HCMProcessIsAttachmentHidden" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessAddlUIAttributeValue" Type="Edm.String" Nullable="false"/>
+                <Property Name="HCMProcessIsTableAddRowEnbld" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessButtonIconName" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="HCMProcessEventName" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <NavigationProperty Name="_HCMProcessRecord" Type="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPType" Nullable="false" Partner="_HCMProcessFieldMetadata">
+                    <ReferentialConstraint Property="HCMProcessNameCode" ReferencedProperty="HCMProcessNameCode"/>
+                    <ReferentialConstraint Property="HCMProcessUUID" ReferencedProperty="HCMProcessUUID"/>
+                    <ReferentialConstraint Property="HCMProcessWorkItemID" ReferencedProperty="HCMProcessWorkItemID"/>
+                </NavigationProperty>
+            </EntityType>
+            <ComplexType Name="C_HCMProcRecdAdminTPCbAControl">
+                <Property Name="_HCMProcessAttachment" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZD_GetProcesses">
+                <Property Name="HCMPersonnelNumber" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="HCMProcessAffectedObjectType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="HCMProcessApplicationType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HCMProcessDescription" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="HCMProcessGroupName" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="HCMProcessInitiatorRole" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="HCMProcessInitiatorRoleName" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="HCMProcessIsOnBehalf" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessIsStartObject" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="HCMProcessNameCode" Type="Edm.String" Nullable="false" MaxLength="32"/>
+            </ComplexType>
+            <ComplexType Name="EntityControl">
+                <Property Name="Updatable" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="D__FIELDMETADATA">
+                <Property Name="field_name" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="form_scenario" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="form_scenario_stage" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="form_scenario_version" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="object_key" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="process_id" Type="Edm.String" Nullable="false" MaxLength="32"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="PostAction" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPType)" Nullable="false"/>
+                <Parameter Name="field_name" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Parameter Name="process_id" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Parameter Name="form_scenario" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Parameter Name="form_scenario_stage" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Parameter Name="form_scenario_version" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Parameter Name="object_key" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <ReturnType Type="com.sap.gateway.srvd.zui_admin_process.v0001.D__FIELDMETADATA" Nullable="false"/>
+            </Action>
+            <Function Name="GetProcesses" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPType)" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zui_admin_process.v0001.ZD_GetProcesses)" Nullable="false"/>
+            </Function>
+            <EntityContainer Name="Container">
+                <EntitySet Name="C_HCMProcAttchAdminTP" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcAttchAdminTPType">
+                    <NavigationPropertyBinding Path="_HCMProcessRecord" Target="C_HCMProcRecdAdminTP"/>
+                </EntitySet>
+                <EntitySet Name="C_HCMProcFldMetadataAdminTP" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcFldMetadataAdminTPType">
+                    <NavigationPropertyBinding Path="_HCMProcessRecord" Target="C_HCMProcRecdAdminTP"/>
+                </EntitySet>
+                <EntitySet Name="C_HCMProcFldValHelpAdminTP" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcFldValHelpAdminTPType">
+                    <NavigationPropertyBinding Path="_HCMProcessRecord" Target="C_HCMProcRecdAdminTP"/>
+                </EntitySet>
+                <EntitySet Name="C_HCMProcLnkAdminTP" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcLnkAdminTPType">
+                    <NavigationPropertyBinding Path="_HCMProcessRecord" Target="C_HCMProcRecdAdminTP"/>
+                </EntitySet>
+                <EntitySet Name="C_HCMProcRecdAdminTP" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcRecdAdminTPType">
+                    <NavigationPropertyBinding Path="_HCMProcessAffectedObjectType" Target="I_HCMProcessAffectedObjectType"/>
+                    <NavigationPropertyBinding Path="_HCMProcessAttachment" Target="C_HCMProcAttchAdminTP"/>
+                    <NavigationPropertyBinding Path="_HCMProcessFieldMetadata" Target="C_HCMProcFldMetadataAdminTP"/>
+                    <NavigationPropertyBinding Path="_HCMProcessInitiator" Target="I_HCMProcessInitiator"/>
+                    <NavigationPropertyBinding Path="_HCMProcessLink" Target="C_HCMProcLnkAdminTP"/>
+                    <NavigationPropertyBinding Path="_HCMProcessName" Target="I_HCMProcessName"/>
+                    <NavigationPropertyBinding Path="_HCMProcessStatus" Target="I_HCMProcessStatusVH"/>
+                    <NavigationPropertyBinding Path="_HCMProcessUserEvent" Target="C_HCMProcUsrEvtAdminTP"/>
+                    <NavigationPropertyBinding Path="_HCMProcFldValHelp" Target="C_HCMProcFldValHelpAdminTP"/>
+                </EntitySet>
+                <EntitySet Name="C_HCMProcUsrEvtAdminTP" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.C_HCMProcUsrEvtAdminTPType">
+                    <NavigationPropertyBinding Path="_HCMProcessRecord" Target="C_HCMProcRecdAdminTP"/>
+                </EntitySet>
+                <EntitySet Name="I_HCMProcessAffectedObjectType" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessAffectedObjectTypeType"/>
+                <EntitySet Name="I_HCMProcessBasic" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessBasicType">
+                    <NavigationPropertyBinding Path="_HCMProcessAffectedObjectType" Target="I_HCMProcessAffectedObjectType"/>
+                    <NavigationPropertyBinding Path="_HCMProcessName" Target="I_HCMProcessName"/>
+                </EntitySet>
+                <EntitySet Name="I_HCMProcessInitiator" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessInitiatorType"/>
+                <EntitySet Name="I_HCMProcessName" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessNameType"/>
+                <EntitySet Name="I_HCMProcessStatusVH" EntityType="com.sap.gateway.srvd.zui_admin_process.v0001.I_HCMProcessStatusVHType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessAffectedObjectType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_OTYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessApplicationType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Type of Application"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Application Type Representing Type of Object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessInitiatorRole">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Agent Role"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESSOR_ROLE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessIsOnBehalf">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessIsStartObject">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessNameCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D__FIELDMETADATA/field_name">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Field Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Field Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D__FIELDMETADATA/form_scenario">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Form Scenario"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Form Scenario"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D__FIELDMETADATA/form_scenario_stage">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Scenario Step"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Scenario Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D__FIELDMETADATA/object_key">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Object Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D__FIELDMETADATA/process_id">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Process"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessNameCode">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessUUID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessWorkItemID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Work item ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessAttachmentIndex">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Attachm. Number"/>
+                <Annotation Term="SAP__common.Heading" String="Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Temporary Consecutive Number of Attachment"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessAttachmentUUID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="GUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="GUID of Attachment"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_ATTACHMENT_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessStepUUID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcScenarioName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Form Scenario"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Form Scenario"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessStageName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Scenario Step"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Scenario Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcScenarioVersion">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="FormScenario Version"/>
+                <Annotation Term="SAP__common.Heading" String="Form Scenario Version"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Form Scenario Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessAttachmentType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Attachment Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_ATTACHMENT_TYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessReferenceNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Reference Number"/>
+                <Annotation Term="SAP__common.Heading" String="Process Reference Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Process Reference Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_REFERENCE_NUMBER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/__EntityControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/C_HCMProcAttchAdminTP">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessRecord"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessAttachmentFileName"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessAttachmentMimeType"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>HCMProcessAttachmentFileName</PropertyPath>
+                                <PropertyPath>HCMProcessAttachmentMimeType</PropertyPath>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_HCMProcessRecord</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType">
+                <Annotation Term="SAP__common.Label" String="Cnsmpn view for proc attachment(admin)"/>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType/HCMProcessNameCode">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType/HCMProcessUUID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType/HCMProcessWorkItemID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Work item ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType/Fieldname">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Field Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Name of Form Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType/Operation">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Operation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Operations Defined for Form"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType/HCMProcScenarioVersion">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Scenario Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/C_HCMProcUsrEvtAdminTP">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessRecord"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_HCMProcessRecord</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType">
+                <Annotation Term="SAP__common.Label" String="Cnsmpn vw for usr evts of a proc(admin)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessInitiatorType/HCMProcessInitiatorUserID">
+                <Annotation Term="SAP__common.Text" Path="PersonFullName"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="User ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessInitiatorType">
+                <Annotation Term="SAP__common.Label" String="HCM Process Initiator"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_HCMProcessInitiator">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessNameType/HCMProcessNameCode">
+                <Annotation Term="SAP__common.Text" Path="HCMProcessNameCode_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessNameType/HCMProcessNameCode_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Process Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessNameType">
+                <Annotation Term="SAP__common.Label" String="HCM Process Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_HCMProcessName">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessAffectedObjectTypeType/HCMObjectType">
+                <Annotation Term="SAP__common.Text" Path="HCMObjectType_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object type"/>
+                <Annotation Term="SAP__common.Heading" String="Ob"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Object Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=OTYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessAffectedObjectTypeType/HCMObjectType_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Object type text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Object Type Text"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=OTEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessAffectedObjectTypeType">
+                <Annotation Term="SAP__common.Label" String="HCM Process Affected Object Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_HCMProcessAffectedObjectType">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessStatusVHType/HCMProcessStatus">
+                <Annotation Term="SAP__common.Text" Path="HCMProcessStatus_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Processing Status of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS_STATUS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessStatusVHType/HCMProcessStatus_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VAL_TEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessStatusVHType">
+                <Annotation Term="SAP__common.Label" String="HCM Process Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_HCMProcessStatusVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessNameCode">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessUUID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessWorkItemID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Work item ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessKeyField">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Char255"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFieldName">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Field Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Field Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcScenarioVersion">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Scenario Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessObjectKey">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_OBJECT_KEY"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMPersonnelNumber">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Personnel Number"/>
+                <Annotation Term="SAP__common.Heading" String="Pers.No."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PERSNO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessUserEventName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Function Code"/>
+                <Annotation Term="SAP__common.Heading" String="Current Function Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Function Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/C_HCMProcFldValHelpAdminTP">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessRecord"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFilterField1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFilterField1Value"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFilterField2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFilterField2Value"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFilterField3"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFilterField3Value"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFilterField4"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFilterField4Value"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFieldValue"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>HCMProcessFilterField1</PropertyPath>
+                                <PropertyPath>HCMProcessFilterField1Value</PropertyPath>
+                                <PropertyPath>HCMProcessFilterField2</PropertyPath>
+                                <PropertyPath>HCMProcessFilterField2Value</PropertyPath>
+                                <PropertyPath>HCMProcessFilterField3</PropertyPath>
+                                <PropertyPath>HCMProcessFilterField3Value</PropertyPath>
+                                <PropertyPath>HCMProcessFilterField4</PropertyPath>
+                                <PropertyPath>HCMProcessFilterField4Value</PropertyPath>
+                                <PropertyPath>HCMProcessFieldValue</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_HCMProcessRecord</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType">
+                <Annotation Term="SAP__common.Label" String="Cnsmpn view for VH in proc det screen"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType/HCMProcessNameCode">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType/HCMProcessUUID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType/HCMProcessWorkItemID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Work item ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType/HCMProcessLink">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="URL"/>
+                <Annotation Term="SAP__common.QuickInfo" String="URL of Link for Additional Information"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_LINK"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType/HCMProcScenarioVersion">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Scenario Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/C_HCMProcLnkAdminTP">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessRecord"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_HCMProcessRecord</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType">
+                <Annotation Term="SAP__common.Label" String="Cnsmpn vw for addl links for proc(admin)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessNameCode">
+                <Annotation Term="SAP__common.Text" Path="_HCMProcessName/HCMProcessNameCode_Text">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_hcmprocessname/0001;ps='srvd-zui_admin_process-0001';va='com.sap.gateway.srvd.zui_admin_process.v0001.et-c_hcmprocrecdadmintp.hcmprocessnamecode'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessUUID">
+                <Annotation Term="SAP__common.Label" String="Process UUID"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_hcmprocessbasic/0001;ps='srvd-zui_admin_process-0001';va='com.sap.gateway.srvd.zui_admin_process.v0001.et-c_hcmprocrecdadmintp.hcmprocessuuid'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessWorkItemID">
+                <Annotation Term="SAP__common.Label" String="WorkItem ID"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Work item ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcScenarioVersion">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Scenario Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessInitiatorRole">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Agent Role"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESSOR_ROLE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessEventName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Function Code"/>
+                <Annotation Term="SAP__common.Heading" String="Current Function Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Function Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessAffectedObjectType">
+                <Annotation Term="SAP__common.Text" Path="_HCMProcessAffectedObjectType/HCMObjectType_Text">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_hcmprocessaffectedobjectty/0001;ps='srvd-zui_admin_process-0001';va='com.sap.gateway.srvd.zui_admin_process.v0001.et-c_hcmprocrecdadmintp.hcmprocessaffectedobjecttype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Object Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_OTYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMPersonnelNumber">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Personnel Number"/>
+                <Annotation Term="SAP__common.Heading" String="Pers.No."/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Personnel Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessAffectedObject">
+                <Annotation Term="SAP__common.Label" String="Affected"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_hcmprocessaffectedobject/0001;ps='srvd-zui_admin_process-0001';va='com.sap.gateway.srvd.zui_admin_process.v0001.et-c_hcmprocrecdadmintp.hcmprocessaffectedobject'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Object Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Object Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_OBJECT_KEY"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessReferenceNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Reference Number"/>
+                <Annotation Term="SAP__common.Heading" String="Process Reference Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Process Reference Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_REFERENCE_NUMBER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcProcessorName">
+                <Annotation Term="SAP__common.Label" String="Current Processor"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="char256"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Data element for WWI callback"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMPersonnelActionType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Action Type"/>
+                <Annotation Term="SAP__common.Heading" String="Act."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_BOL_MASSN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMPersonnelActionReason">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Attribute"/>
+                <Annotation Term="SAP__common.Heading" String="Attribute for Action Reason"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Attribute for Action Reason"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_BOL_MASSG_UI_ATTR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMCentralPerson">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Tech. Pers. No."/>
+                <Annotation Term="SAP__common.Heading" String="Pers No."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Person Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PERSONID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessUiAttribute">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="UI Attribute"/>
+                <Annotation Term="SAP__common.Heading" String="UI Attributes for a Field"/>
+                <Annotation Term="SAP__common.QuickInfo" String="UI Attributes for a Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessAuthorName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process Initiator"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Formatted Name of Initiator of the process"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessStatus">
+                <Annotation Term="SAP__common.Text" Path="_HCMProcessStatus/HCMProcessStatus_Text">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_hcmprocessstatusvh/0001;ps='srvd-zui_admin_process-0001';va='com.sap.gateway.srvd.zui_admin_process.v0001.et-c_hcmprocrecdadmintp.hcmprocessstatus'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Label" String="Process Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Processing Status of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS_STATUS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcStatusAfterUserAction">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Status After Action"/>
+                <Annotation Term="SAP__common.Heading" String="Step Status After Action"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Step Status After User Action"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessFormType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="P&amp;F Form Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Form type for Processes and Form Scenarios"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessFormLayout">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="form layout"/>
+                <Annotation Term="SAP__common.Heading" String="form layout type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Form layout type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessStepUUID">
+                <Annotation Term="SAP__common.Label" String="Step UUID"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMFormTemplateName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name of a Form Object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessApplicationType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Type of Application"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Application Type Representing Type of Object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessInitiatorUserID">
+                <Annotation Term="SAP__common.Text" Path="_HCMProcessInitiator/PersonFullName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_hcmprocessinitiatorvh/0001;ps='srvd-zui_admin_process-0001';va='com.sap.gateway.srvd.zui_admin_process.v0001.et-c_hcmprocrecdadmintp.hcmprocessinitiatoruserid'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Process Initiator"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Initiator of Process (User Name)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_INITIATOR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/__CreateByAssociationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/C_HCMProcRecdAdminTP">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessAffectedObjectType"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessAttachment"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Path="__CreateByAssociationControl/_HCMProcessAttachment"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessFieldMetadata"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessInitiator"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessLink"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessName"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessStatus"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessUserEvent"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcFldValHelp"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcCommentsCurTxt"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcCommentsPrevTxt"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessStartDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__CreateByAssociationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>HCMProcCommentsCurTxt</PropertyPath>
+                                <PropertyPath>HCMProcCommentsPrevTxt</PropertyPath>
+                                <PropertyPath>__CreateByAssociationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_HCMProcessAffectedObjectType</PropertyPath>
+                                <PropertyPath>_HCMProcessAttachment</PropertyPath>
+                                <PropertyPath>_HCMProcessFieldMetadata</PropertyPath>
+                                <PropertyPath>_HCMProcessInitiator</PropertyPath>
+                                <PropertyPath>_HCMProcessLink</PropertyPath>
+                                <PropertyPath>_HCMProcessName</PropertyPath>
+                                <PropertyPath>_HCMProcessStatus</PropertyPath>
+                                <PropertyPath>_HCMProcessUserEvent</PropertyPath>
+                                <PropertyPath>_HCMProcFldValHelp</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/_HCMProcessAttachment">
+                <Annotation Term="SAP__common.Composition"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/_HCMProcessFieldMetadata">
+                <Annotation Term="SAP__common.Composition"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/_HCMProcessLink">
+                <Annotation Term="SAP__common.Composition"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/_HCMProcessUserEvent">
+                <Annotation Term="SAP__common.Composition"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/_HCMProcFldValHelp">
+                <Annotation Term="SAP__common.Composition"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PostAction(Collection(SAP__self.C_HCMProcRecdAdminTPType))/field_name">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Field Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Field Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PostAction(Collection(SAP__self.C_HCMProcRecdAdminTPType))/process_id">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Process"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PostAction(Collection(SAP__self.C_HCMProcRecdAdminTPType))/form_scenario">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Form Scenario"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Form Scenario"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PostAction(Collection(SAP__self.C_HCMProcRecdAdminTPType))/form_scenario_stage">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Scenario Step"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Scenario Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PostAction(Collection(SAP__self.C_HCMProcRecdAdminTPType))/form_scenario_version">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="FormScenario Version"/>
+                <Annotation Term="SAP__common.Heading" String="Form Scenario Version"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Form Scenario Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PostAction(Collection(SAP__self.C_HCMProcRecdAdminTPType))/object_key">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Object Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType">
+                <Annotation Term="SAP__common.Label" String="Cnsmpn view for process record(admin)"/>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HCMProcessNameCode"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HCMProcessAffectedObject"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HCMProcessReferenceNumber"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HCMProcProcessorName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Criticality" Path="HCMProcessStatusCriticality"/>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="SAP__UI.CriticalityRepresentationType/WithIcon"/>
+                            <PropertyValue Property="Value" Path="HCMProcessStatus"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HCMProcessStartDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>HCMProcessAffectedObject</PropertyPath>
+                        <PropertyPath>HCMProcessNameCode</PropertyPath>
+                        <PropertyPath>HCMProcessStatus</PropertyPath>
+                        <PropertyPath>HCMProcessStartDate</PropertyPath>
+                        <PropertyPath>HCMProcessInitiatorUserID</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessReferenceNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Reference Number"/>
+                <Annotation Term="SAP__common.Heading" String="Process Reference Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Process Reference Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_REFERENCE_NUMBER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessNameCode">
+                <Annotation Term="SAP__common.Text" Path="_HCMProcessName/HCMProcessNameCode_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessInitiatorUserID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process Initiator"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Initiator of Process (User Name)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_INITIATOR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessInitiatorRole">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Role of Initiator"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Role of Initiator of Process"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessRecruitingScenario">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="XI Scenario"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_XI_SCENARIO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Processing Status of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS_STATUS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessApplicationType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Type of Application"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Application Type Representing Type of Object"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessAffectedObject">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_OBJECT_KEY"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessNumberOfAttachments">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="No. of Attachments"/>
+                <Annotation Term="SAP__common.Heading" String="Number of Attachments"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Number of Attachments of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_NO_OF_ATTACHMENTS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessBusinessUserID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Bus. Initiator"/>
+                <Annotation Term="SAP__common.Heading" String="Bus.Init"/>
+                <Annotation Term="SAP__common.QuickInfo" String="User for Which a Process Was Started"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessAffectedObjectType">
+                <Annotation Term="SAP__common.Text" Path="_HCMProcessAffectedObjectType/HCMObjectType_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Object Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_OTYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessGroupReferenceNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Reference Number"/>
+                <Annotation Term="SAP__common.Heading" String="Process Reference Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Process Reference Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_REFERENCE_NUMBER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process Group"/>
+                <Annotation Term="SAP__common.Heading" String="Proc.Grp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Group of Processes"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCGRP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_HCMProcessBasic">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessAffectedObjectType"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessName"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_HCMProcessAffectedObjectType</PropertyPath>
+                                <PropertyPath>_HCMProcessName</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType">
+                <Annotation Term="SAP__common.Label" String="HCM Process"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessNameCode">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessUUID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessWorkItemID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Work item ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldName">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Field Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Field Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcScenarioVersion">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Scenario Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessGroupID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Group ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Group ID for Metadata"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessUserEventName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Function Code"/>
+                <Annotation Term="SAP__common.Heading" String="Current Function Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Function Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldDescriptionID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Field description ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessUIAttribute">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="UI Attribute"/>
+                <Annotation Term="SAP__common.Heading" String="UI Attributes for a Field"/>
+                <Annotation Term="SAP__common.QuickInfo" String="UI Attributes for a Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessButtonIconName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Field Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Field Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessEventName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Function Code"/>
+                <Annotation Term="SAP__common.Heading" String="Current Function Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Function Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/C_HCMProcFldMetadataAdminTP">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_HCMProcessRecord"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFieldValue"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcFieldSrchHelpParentName"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessFieldDescription"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessExpertsNames"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="HCMProcessAddlUIAttributeValue"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>HCMProcessFieldValue</PropertyPath>
+                                <PropertyPath>HCMProcFieldSrchHelpParentName</PropertyPath>
+                                <PropertyPath>HCMProcessFieldDescription</PropertyPath>
+                                <PropertyPath>HCMProcessExpertsNames</PropertyPath>
+                                <PropertyPath>HCMProcessAddlUIAttributeValue</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_HCMProcessRecord</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType">
+                <Annotation Term="SAP__common.Label" String="Cnsmpn view for field metadata(Admin)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessAttachmentFileName">
+                <Annotation Term="SAP__common.Label" String="File Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="File Name of Attachment"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessAttachmentOperation">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessAttachmentMimeType">
+                <Annotation Term="SAP__common.Label" String="Attachment MIME Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="MIME Type of Attachment"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessAttachmentTypeText">
+                <Annotation Term="SAP__common.Label" String="Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Name of Attachment Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcAttachmentContentText">
+                <Annotation Term="SAP__common.Label" String="Attachment Contents"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Contents of Attachment"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessIsModifyAllowed">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/HCMProcessIsDisplayAllowed">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcAttchAdminTPType/__EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType/HCMProcScenarioName">
+                <Annotation Term="SAP__common.Label" String="Scenario"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcUsrEvtAdminTPType/HCMProcessStageName">
+                <Annotation Term="SAP__common.Label" String="Scenario Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessInitiatorType/PersonFullName">
+                <Annotation Term="SAP__common.Label" String="Full Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Full Name of Person"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AD_NAMTEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcScenarioName">
+                <Annotation Term="SAP__common.Label" String="Scenario"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessStageName">
+                <Annotation Term="SAP__common.Label" String="Scenario Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessControlTypeCode">
+                <Annotation Term="SAP__common.Label" String="control type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: type of control"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFilterField1">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFilterField1Value">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFilterField2">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFilterField2Value">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFilterField3">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFilterField3Value">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFilterField4">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFilterField4Value">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldValHelpAdminTPType/HCMProcessFieldValue">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType/HCMProcScenarioName">
+                <Annotation Term="SAP__common.Label" String="Scenario"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType/HCMProcessStageName">
+                <Annotation Term="SAP__common.Label" String="Scenario Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcLnkAdminTPType/HCMProcessLinkText">
+                <Annotation Term="SAP__common.Label" String="Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name of Link for Additional Information"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcScenarioName">
+                <Annotation Term="SAP__common.Label" String="Scenario"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessStageName">
+                <Annotation Term="SAP__common.Label" String="Scenario Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessAffectedName">
+                <Annotation Term="SAP__common.Label" String="Object Name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=STEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessIsStartObject">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessIsOnBehalf">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessGroupName">
+                <Annotation Term="SAP__common.Label" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Text (20 Characters)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessDescription">
+                <Annotation Term="SAP__common.Label" String="Process Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessIsCustomTable">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessEffectiveDate">
+                <Annotation Term="SAP__common.Label" String="Effective Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_EFFECTIVE_DATE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessHasAttachments">
+                <Annotation Term="SAP__common.Label" String="Has Attachment"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI:Indiacator for Attachments allowed or restricted"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcMaxAttachments">
+                <Annotation Term="SAP__common.Label" String="Maximum Attach. Size"/>
+                <Annotation Term="SAP__common.Heading" String="Maximum Attachment Size"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Maximum Permissible Attachment Size in Kilobytes"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessAttachMaxSize">
+                <Annotation Term="SAP__common.Label" String="Maximum Attach. Size"/>
+                <Annotation Term="SAP__common.Heading" String="Maximum Attachment Size"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Maximum Permissible Attachment Size in Kilobytes"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessHasComments">
+                <Annotation Term="SAP__common.Label" String="Has Comments"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Indicator for Comments Allowed or Restricted"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcCommentsCurTxt">
+                <Annotation Term="SAP__common.Label" String="Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text Field (For Example, For Infotype Texts)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcCommentsPrevTxt">
+                <Annotation Term="SAP__common.Label" String="Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text Field (For Example, For Infotype Texts)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessIsLiteModeCompatible">
+                <Annotation Term="SAP__common.Label" String="Is lite mode"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI : Flag indicator to show Mobile App feasibility"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessIsAddRowEnabled">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessIsInputHelpEnabled">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessStatusCriticality">
+                <Annotation Term="SAP__common.Label" String="Completed Processes"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessStartDate">
+                <Annotation Term="SAP__common.Label" String="Process Start Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Start Date of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_INIT_DATE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessStartTime">
+                <Annotation Term="SAP__common.Label" String="Process Start Time"/>
+                <Annotation Term="SAP__common.Heading" String="Process StartTime"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Start Time of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_INIT_TIME"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessStepCompletionDate">
+                <Annotation Term="SAP__common.Label" String="End Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="End Date of Process or Process Step"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_COMPLETION_DATE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessStepCompletionTime">
+                <Annotation Term="SAP__common.Label" String="End Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="End Time of Process or Process Step"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_COMPLETION_TIME"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/HCMProcessIsAllStepsDisplayed">
+                <Annotation Term="SAP__common.Label" String="show steps"/>
+                <Annotation Term="SAP__common.Heading" String="show processed steps of process"/>
+                <Annotation Term="SAP__common.QuickInfo" String="show processed steps of process"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPType/__CreateByAssociationControl/_HCMProcessAttachment">
+                <Annotation Term="SAP__common.Label" String="Dynamic CbA-Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Create by Association Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Create via Association Control Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessUUID">
+                <Annotation Term="SAP__common.Label" String="Technical Case Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Technical Case Key (Case GUID)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCMG_CASE_GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessStartDate">
+                <Annotation Term="SAP__common.Label" String="Process Start Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Start Date of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_INIT_DATE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessStartTime">
+                <Annotation Term="SAP__common.Label" String="Process Start Time"/>
+                <Annotation Term="SAP__common.Heading" String="Process StartTime"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Start Time of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_INIT_TIME"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessStartDateTime">
+                <Annotation Term="SAP__common.Label" String="Start Time Stamp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="UTC Time Stamp: Process Start"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_UTC_TIMESTAMP_INIT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessStartTimeDiff">
+                <Annotation Term="SAP__common.Label" String="Time Difference"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time Difference: SY-DATE/SY-TIME Minus UTC Time Stamp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_DELTA_TO_UTC_IN_SECONDS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessCompletionDate">
+                <Annotation Term="SAP__common.Label" String="End Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="End Date of Process or Process Step"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_COMPLETION_DATE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessCompletionTime">
+                <Annotation Term="SAP__common.Label" String="End Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="End Time of Process or Process Step"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_COMPLETION_TIME"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessCompltnDateTime">
+                <Annotation Term="SAP__common.Label" String="End Time Stamp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="UTC Time Stamp: End of Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_UTC_TIMESTAMP_COMPLETION"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessCompltnTimeDiff">
+                <Annotation Term="SAP__common.Label" String="Time Difference"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time Difference: SY-DATE/SY-TIME Minus UTC Time Stamp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_DELTA_TO_UTC_IN_SECONDS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessHasError">
+                <Annotation Term="SAP__common.Label" String="Error Occurred"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Error Occurred in Process"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_ERROR_OCCURED"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessObjectVersionValue">
+                <Annotation Term="SAP__common.Label" String="Proc. Object Version"/>
+                <Annotation Term="SAP__common.Heading" String="Version"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Process Object Version"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_PROCESS_OBJECT_VERSION"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcAffcdObjDesc">
+                <Annotation Term="SAP__common.Label" String="Object Title"/>
+                <Annotation Term="SAP__common.Heading" String="Title"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_HCMProcessBasicType/HCMProcessEffectiveDate">
+                <Annotation Term="SAP__common.Label" String="Effective Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ASR_EFFECTIVE_DATE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcScenarioName">
+                <Annotation Term="SAP__common.Label" String="Scenario"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessStageName">
+                <Annotation Term="SAP__common.Label" String="Scenario Step"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldSequenceNumber">
+                <Annotation Term="SAP__common.Label" String="Field Sequence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Sequence of fields"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldLabelText">
+                <Annotation Term="SAP__common.Label" String="Custom Label"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Custom label for Metadata field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldTypeText">
+                <Annotation Term="SAP__common.Label" String="Field Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Fieldtype"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldLengthValue">
+                <Annotation Term="SAP__common.Label" String="fld length"/>
+                <Annotation Term="SAP__common.Heading" String="field length"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Field Length"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldValue">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessRecordIndex">
+                <Annotation Term="SAP__common.Label" String="Record Index"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Record Index in case of Table"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldHasSearchHelp">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessControlTypeCode">
+                <Annotation Term="SAP__common.Label" String="control type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: type of control"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldIsMandatory">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldIsReadOnly">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldIsHidden">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessGroupHeaderText">
+                <Annotation Term="SAP__common.Label" String="Group Header"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Group Header for Metadata"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessGroupSequenceNumber">
+                <Annotation Term="SAP__common.Label" String="Group Sequence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Group Sequence for Metadata"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessGroupFieldSequence">
+                <Annotation Term="SAP__common.Label" String="Field Sequence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Sequence of fields"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldContainer">
+                <Annotation Term="SAP__common.Label" String="Field container"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Container for Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessContainerId">
+                <Annotation Term="SAP__common.Label" String="Field Container ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Field Container ID for Metadata table"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcContainerSequenceNumber">
+                <Annotation Term="SAP__common.Label" String="Field Container Seq"/>
+                <Annotation Term="SAP__common.Heading" String="Field Container Sequence"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Field Container Sequence in Metadata"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessContainerTitleText">
+                <Annotation Term="SAP__common.Label" String="Container Title"/>
+                <Annotation Term="SAP__common.Heading" String="Field Container Title"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI:  Field Container Title for Metadata"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessIsStartObject">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcFieldSrchHelpParentName">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessIsFieldControlButton">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessIsButtonEnabled">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessIsButtonVisible">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldPrecisionValue">
+                <Annotation Term="SAP__common.Label" String="Field Precision"/>
+                <Annotation Term="SAP__common.QuickInfo" String="FABFIORI: set precision for Metadata Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldDescription">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessFieldScaleValue">
+                <Annotation Term="SAP__common.Label" String="Field Scale"/>
+                <Annotation Term="SAP__common.QuickInfo" String="FABFIORI: Set Scale for Metadata Field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessTooltipText">
+                <Annotation Term="SAP__common.Label" String="Custom Label"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Custom label for Metadata field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessIsLiteModeCompatible">
+                <Annotation Term="SAP__common.Label" String="Is lite mode"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI : Flag indicator to show Mobile App feasibility"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessIsForwardToExpert">
+                <Annotation Term="SAP__common.Label" String="ForwardtToExp"/>
+                <Annotation Term="SAP__common.Heading" String="ForwardToExp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI : Flag indicator to show forward to expert"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessExpertsNames">
+                <Annotation Term="SAP__common.Label" String="FwdExpList"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Forward to expert list"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessIsAttachmentHidden">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessAddlUIAttributeValue">
+                <Annotation Term="SAP__common.Label" String="Field Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcFldMetadataAdminTPType/HCMProcessIsTableAddRowEnbld">
+                <Annotation Term="SAP__common.Label" String="Yes/No"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Yes/No - Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.C_HCMProcRecdAdminTPCbAControl/_HCMProcessAttachment">
+                <Annotation Term="SAP__common.Label" String="Dynamic CbA-Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Create by Association Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Create via Association Control Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMPersonnelNumber">
+                <Annotation Term="SAP__common.Label" String="Personnel Number"/>
+                <Annotation Term="SAP__common.Heading" String="Pers.No."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PERSNO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessDescription">
+                <Annotation Term="SAP__common.Label" String="Process Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessGroupName">
+                <Annotation Term="SAP__common.Label" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Text (20 Characters)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZD_GetProcesses/HCMProcessInitiatorRoleName">
+                <Annotation Term="SAP__common.Label" String="Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name of Agent Role"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D__FIELDMETADATA/form_scenario_version">
+                <Annotation Term="SAP__common.Label" String="FormScenario Version"/>
+                <Annotation Term="SAP__common.Heading" String="Form Scenario Version"/>
+                <Annotation Term="SAP__common.QuickInfo" String="HRFIOFIORI: Form Scenario Version"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

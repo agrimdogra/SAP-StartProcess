@@ -1,0 +1,67 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="idEmployeeListDialog"
+        title="Select Employee"
+        contentWidth="60%"
+    >
+        <content>
+            <SearchField
+                id="idSearchEmp"
+                search="onSearchEmployee"
+            />
+            <Table id="idEmpListTbl"
+                items="{EmployeeList>/}"
+                selectionChange=".onEmployeeSelection"
+            >
+                <columns>
+                    <Column id="employeeName">
+                        <Text id="text1" text="Employee Name" />
+                    </Column>
+                    <Column id="orgUnit">
+                        <Text id="text2" text="Org. Unit" />
+                    </Column>
+                    <Column id="position">
+                        <Text id="text3" text="Position" />
+                    </Column>
+                    <Column id="personnelArea">
+                        <Text id="text4" text="Pers. Area" />
+                    </Column>
+                    <Column id="personnelSubArea">
+                        <Text id="text5" text="Pers. Subarea" />
+                    </Column>
+                    <Column id="payrollArea">
+                        <Text id="text6" text="Payroll Area" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="columnItem" vAlign="Middle">
+                        <cells>
+                            <Text id="text7" text="{EmployeeList>HCMEmployeeName} ({EmployeeList>HCMProcessAffectedObject})" />
+                            <Text id="text8" text="{EmployeeList>HCMOrganizationalUnitName} ({EmployeeList>HCMOrganizationalUnit})" />
+                            <Text id="text9" text="{EmployeeList>HCMPositionName} ({EmployeeList>HCMPosition})" />
+                            <Text id="text10" text="{EmployeeList>HCMPersonnelArea}" />
+                            <Text id="text11" text="{EmployeeList>HCMPersonnelSubarea}" />
+                            <Text id="text12" text="{EmployeeList>HCMPayrollArea} ({EmployeeList>HCMPayrollAreaText})" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <!-- <beginButton>
+            <Button
+                type="Emphasized"
+                text="Confirm"
+                press=".onEmployeeSelection"
+            /> -->
+        <!-- </beginButton> -->
+        <endButton>
+            <Button id="cancel"
+                text="Cancel"
+                press=".onEmpDialogClose"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,47 @@
+<!-- <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+		id="selectProcess"
+		noDataText="No Products Found"
+		title="Select Process"
+		search=".onSearch"
+		confirm=".onListOnSelectionChange"
+		cancel=".onDialogClose"
+		items="{ProcessList>/}"
+        selectionChange=".onListOnSelectionChange"
+        contentHeight="60%">
+		<StandardListItem
+            id="idProcessListItem"
+			title="{ProcessList>HCMProcessDescription}"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition> -->
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:smartField="sap.ui.comp.smartfield" 	xmlns:sfb="sap.ui.comp.smartfilterbar" xmlns:st="sap.ui.comp.smarttable">
+    <Dialog id="selectProcess" title= "Select HR Process">
+		<content>
+		<!-- <smartField:SmartField entitySet="C_HCMProcRecdAdminTP"  id="idPrice"/> -->
+			<SearchField id="idSearchProcess" search=".onSearch"/>
+			<List id="idProcessList" items="{ProcessList>/}"  mode="SingleSelectMaster" includeItemInSelection="true" selectionChange=".onProcessListSelection">
+				<items>
+					<StandardListItem id="processDesc" title="{ProcessList>HCMProcessDescription}" ></StandardListItem>
+				</items>          
+			</List>
+		<!-- <sfb:SmartFilterBar
+					id="smartFilterBar"
+					entitySet="C_HCMProcRecdAdminTP"
+					search="onSearch">
+					
+					
+				</sfb:SmartFilterBar>	 -->
+			<!-- <st:SmartTable entitySet="C_HCMProcRecdAdminTP"></st:SmartTable> -->
+			<!-- <VBox binding="{/C_HCMProcRecdAdminTP('1')}"> -->
+			<!-- <Input value="{meta>/C_HCMProcRecdAdminTP/HCMProcessNameCode@@sap.ui.model.odata.v4.AnnotationHelper.label}"></Input> -->
+			<!-- </VBox> -->
+		</content>
+		<!-- <beginButton>
+			<Button type="Emphasized" text="Confirm" press=".onProcessListSelection"></Button>
+		</beginButton> -->
+		<endButton>
+		<Button id="cancel" text="Cancel" press=".onProcessListDialogClose"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,9 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+    xmlns:html="http://www.w3.org/1999/xhtml" controllerName="startprocessnew.ext.controller.detail">
+    <Page id="DetailView" title="Detail View" showNavButton="true" navButtonPress=".onNavBack">
+        <content>
+            <Button id='default' text='Default' press='onPress'></Button>
+            <core:Fragment fragmentName="lib.zprocessandforms.common.library.view.fragments.test" type="XML"/>
+        </content>
+    </Page>
+</mvc:View>
